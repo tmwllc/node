@@ -9,24 +9,8 @@ var express = require('express'),
     config = require('./config/config.js'),
     ConnectMongo = require('connect-mongo')(session),
     mongoose = require('mongoose').connect(config.dbURL),
-    userSchema = mongoose.Schema({
-        username: String,
-        password: String,
-        fullname: String
-    }),
-    Person = mongoose.model('users', userSchema),
-    john = new Person({
-        username: 'johndoe',
-        password: 'johnwantstologin',
-        fullname: 1
-    });
-
-john.save(function(err) {
-    if (err) {
-        console.log('Error attempting to save user:', err);
-    }
-    console.log('Done!');
-});
+    passport = require('passport'),
+    FacebookStrategy = require('passport-facebook').Strategy;
 
 app.set('views', path.join(__dirname, 'views'));
 app.engine('html', require('hogan-express'));
@@ -48,9 +32,10 @@ if (env === 'development') {
     }));
 }
 
+require('./auth/passportAuth.js')(passport, FacebookStrategy, config, mongoose);
 require('./routes/routes')(express, app);
 
-app.listen(3000, function() {
+app.listen(3500, function() {
     console.log('ChatCAT working on port 3000');
     console.log('Mode:', env);
 });
