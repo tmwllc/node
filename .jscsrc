@@ -1,36 +1,36 @@
 {
-  "disallowMultipleVarDecl": null,
-  "preset": "google",
-  "fileExtensions": [".js", "jscs"],
+	"disallowMultipleVarDecl": null,
+	"preset": "google",
+	"fileExtensions": [".js", "jscs"],
 
-  "requireSemicolons": true,
-  "requireParenthesesAroundIIFE": true,
-  "maximumLineLength": 120,
-  "validateLineBreaks": "CRLF",
-  "validateIndentation": 4,
-  "disallowTrailingComma": true,
-  "disallowUnusedParams": true,
+	"requireSemicolons": true,
+	"requireParenthesesAroundIIFE": true,
+	"maximumLineLength": 120,
+	"validateLineBreaks": "CRLF",
+	"validateIndentation": "\t",
+	"disallowTrailingComma": true,
+	"disallowUnusedParams": true,
 
-  "disallowSpacesInsideObjectBrackets": null,
-  "disallowImplicitTypeConversion": ["string"],
+	"disallowSpacesInsideObjectBrackets": null,
+	"disallowImplicitTypeConversion": ["string"],
 
-  "safeContextKeyword": "_this",
+	"safeContextKeyword": "_this",
 
-  "jsDoc": {
-    "checkAnnotations": "closurecompiler",
-    "checkParamNames": true,
-    "requireParamTypes": true,
-    "checkRedundantParams": true,
-    "checkReturnTypes": true,
-    "checkRedundantReturns": true,
-    "requireReturnTypes": true,
-    "checkTypes": "capitalizedNativeCase",
-    "checkRedundantAccess": true,
-    "requireNewlineAfterDescription": true
-  },
+	"jsDoc": {
+	"checkAnnotations": "closurecompiler",
+	"checkParamNames": true,
+	"requireParamTypes": true,
+	"checkRedundantParams": true,
+	"checkReturnTypes": true,
+	"checkRedundantReturns": true,
+	"requireReturnTypes": true,
+	"checkTypes": "capitalizedNativeCase",
+	"checkRedundantAccess": true,
+	"requireNewlineAfterDescription": true
+	},
 
-  "excludeFiles": [
-    "test/data/**",
-    "patterns/*"
-  ]
+	"excludeFiles": [
+	"test/data/**",
+	"patterns/*"
+	]
 }

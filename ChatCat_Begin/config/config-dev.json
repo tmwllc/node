@@ -2,8 +2,10 @@
 	"dbURL": "mongodb://ChatCatUser:chatcat@ds041404.mongolab.com:41404/chatcat",
 	"sessionSecret": "213409v",
 	"fb": {
-		"appId": "498435326990915",
-		"appSecret": "06209b92cd77f4c89210ad35d12e26a1",
+		"appId": "907037039377586",
+		"appSecret": "95bae3581486570deba9ebb4122d92a4",
 		"callbackUrl": "http://localhost:3500/auth/facebook/callback"
-	}
+	},
+	"host": "http://localhost:3500",
+	"port": 3500
 }
