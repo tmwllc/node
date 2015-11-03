@@ -41,11 +41,6 @@ app.use(passport.session());
 require('./auth/passportAuth.js')(passport, FacebookStrategy, config, mongoose);
 require('./routes/routes')(express, app, passport, config);
 
-app.listen(PORT, function() {
-	console.log('ChatCAT working on port 3500');
-	console.log('Mode:', env);
-});
-
 app.set('port', PORT);
 
 server = require('http').createServer(app);
