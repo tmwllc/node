@@ -1,6 +1,6 @@
 'use strict';
 
-module.exports = function(express, app, passport, config) {
+module.exports = function(express, app, passport, config, rooms) {
 	var router = express.Router();
 
 	router.get('/', function(req, res) {
@@ -17,6 +17,19 @@ module.exports = function(express, app, passport, config) {
 		}
 	}
 
+	function findTitle(roomId) {
+		var i = 0;
+		while (i < rooms.length) {
+			if (+rooms[i].roomNumber === +roomId) {
+				return rooms[i].roomName;
+				break;
+			} else {
+				i++;
+				continue;
+			}
+		}
+	}
+
 	// redirects to facebook login page
 	router.get('/auth/facebook', passport.authenticate('facebook'));
 
@@ -29,6 +42,11 @@ module.exports = function(express, app, passport, config) {
 	// this page is secured. logged out users will be  redirected to login page.
 	router.get('/chatrooms', securePages, function(req, res) {
 		res.render('chatrooms', { title: 'Chatrooms', user: req.user, config: config });
+	});
+
+	router.get('/room/:id', securePages, function(req, res, next) {
+		var roomName = findTitle(req.params.id);
+		res.render('room', { user: req.user, roomNumber: req.params.id, config: config, roomName: roomName });;
 	});
 
 	router.get('/logout', function(req, res, next) {

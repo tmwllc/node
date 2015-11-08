@@ -39,7 +39,7 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 require('./auth/passportAuth.js')(passport, FacebookStrategy, config, mongoose);
-require('./routes/routes')(express, app, passport, config);
+require('./routes/routes')(express, app, passport, config, rooms);
 
 app.set('port', PORT);
 
